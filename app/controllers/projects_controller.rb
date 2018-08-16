@@ -1,7 +1,9 @@
 class ProjectsController < ApplicationController
 
   def index
-    @projects = Project.all
+    if user_signed_in?
+      @projects = Project.where(:user_id => current_user.id)
+    end
   end
 
   def show
@@ -9,7 +11,7 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = Project.new
+    @project = current_user.projects.build
   end
 
   def edit
@@ -17,7 +19,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(project_params)
+    @project = current_user.projects.build(project_params)
 
     if @project.save
       redirect_to projects_path

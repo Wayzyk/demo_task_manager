@@ -1,22 +1,21 @@
-<h1>Projects</h1>
+<% if user_signed_in? %>
 
-  <table>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-    </tr>
-
+  <div class="col-md-6 col-md-offset">
     <% @projects.each do |project| %>
-      <tr>
-        <th><%= project.title %></th>
-        <th><%= project.description %></th>
-        <th><%= link_to "Show", project_path(project) %></th>
-        <th><%= link_to "Edit", edit_project_path(project) %></th>
-        <th><%= link_to "Delete", project_path(project),
-                                      method: :delete,
-                                      data: { confirm: "Are you sure?"} %></th>
-      </tr>
-    <% end %>
-  </table>
+    <h2><%= link_to project.title, project %></h2>
+    <p><%= project.description %></p>
 
-<%= link_to "New project", new_project_path %>
+
+    <div class="col-md-2">
+      <p><%= link_to project, method: :delete, data: { confirm: "Are you sure?" } do %></p>
+        <i class="fa fa-trash fa-lg"></i>
+        <% end %>
+      </div>
+
+  </div>
+
+  <% end %>
+<% else %>
+  <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
+  <%= link_to "Log In", new_user_session_path, class: "btn btn-primary" %>
+<% end %>
