@@ -10,6 +10,7 @@
       <tr>
         <th><%= project.title %></th>
         <th><%= project.description %></th>
+        <th><%= link_to "Show", project_path(project) %></th>
         <th><%= link_to "Edit", edit_project_path(project) %></th>
         <th><%= link_to "Delete", project_path(project),
                                       method: :delete,
