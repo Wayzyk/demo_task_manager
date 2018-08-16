@@ -1,0 +1,4 @@
+<%= simple_form_for( [@project, @project.tasks.build] ) do |f| %>
+  <%= f.input :task_description %>
+  <%= f.button :submit %>
+<% end %>
