@@ -12,7 +12,7 @@ class TasksController < ApplicationController
     else
       flash[:error] = "Task couldn't deleted"
     end
-    redirect_to root_path
+    redirect_to @project
   end
 
   private
