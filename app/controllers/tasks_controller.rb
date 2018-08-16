@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :set_project
   before_action :set_task, except: [:create]
   def create
-    @task = @project.task.create(task_params)
+    @task = @project.tasks.create(task_params)
     redirect_to @project
   end
 
