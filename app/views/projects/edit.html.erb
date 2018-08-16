@@ -1,0 +1,7 @@
+<h1>Edit new project</h1>
+
+<%= simple_form_for @project do |p| %>
+  <%= p.input :title %>
+  <%= p.input :description %>
+  <%= p.button :submit %>
+<% end %>

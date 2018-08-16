@@ -1,0 +1,21 @@
+<h1>Projects</h1>
+
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+    </tr>
+
+    <% @projects.each do |project| %>
+      <tr>
+        <th><%= project.title %></th>
+        <th><%= project.description %></th>
+        <th><%= link_to "Edit", edit_project_path(project) %></th>
+        <th><%= link_to "Delete", project_path(project),
+                                      method: :delete,
+                                      data: { confirm: "Are you sure?"} %></th>
+      </tr>
+    <% end %>
+  </table>
+
+<%= link_to "New project", new_project_path %>
