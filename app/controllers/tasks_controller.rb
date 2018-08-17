@@ -7,12 +7,12 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    if @task.destroy
-      flash[:success] = "Task was deleted"
-    else
-      flash[:error] = "Task couldn't deleted"
+    @task.destroy
+    respond_to do |format|
+      format.js
+      format.html { redirect_to projects_path, notice: "Task was successfully destroyed" }
+      format.json { head :no_content }
     end
-    redirect_to @project
   end
 
   def complete
