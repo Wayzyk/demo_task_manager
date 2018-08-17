@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :tasks do
       member do
         patch :complete
+        patch :deadline
       end
     end
   end

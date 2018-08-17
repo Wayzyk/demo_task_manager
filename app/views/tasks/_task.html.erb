@@ -8,6 +8,10 @@
           <p style="opacity: 0,5;"><strike><%= task.task_description %></strike></p>
         </div>
 
+        <div class="col-md-8">
+          <p style="opacity: 0,5;"><strike><%= task.deadline %></strike></p>
+        </div>
+
         <div class="col-md-2">
           <p><%= link_to complete_project_task_path(@project, task.id), method: :patch do %></p>
             <i class="fa fa-lg fa-check"></i>
@@ -29,6 +33,13 @@
     <div class="col-md-8">
       <p style="opacity: 0,5;"><%= task.task_description %></p>
     </div>
+
+      <% if task.expired? %>
+        <%= "Deadline expired" %>
+      <% else %>
+        <%= task.deadline %>    
+      <% end %>
+
 
     <div class="col-md-2">
       <p><%= link_to complete_project_task_path(@project, task.id), method: :patch do %></p>
