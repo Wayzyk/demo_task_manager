@@ -18,6 +18,12 @@
         </div>
 
         <div class="col-md-2">
+          <p><%= link_to new_project_task_path(project) do %></p>
+            <i class="fa fa-lg fa-tasks"></i>
+          <% end %>
+        </div>
+
+        <div class="col-md-2">
           <p><%= link_to project, method: :delete, data: { confirm: "Are you sure?" } do %></p>
             <i class="fa fa-lg fa-trash"></i>
           <% end %>
