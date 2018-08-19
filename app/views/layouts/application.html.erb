@@ -13,17 +13,21 @@
   <body>
     <nav class="navbar navbar-default">
       <div class="container">
+
         <div class="navbar-header">
           <%= link_to "TaskManager", root_path, class: "navbar-brand" %>
         </div>
-        <ul class="nav navbar-nav">
+
+        <ul class="nav navbar-nav">          
           <% if current_user.present? %>
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
           <% end %>
         </ul>
+
         <% if user_signed_in? %>
           <%= link_to "New Project", new_project_path, class: "navbar-text navbar-link navbar-right" %>
         <% end %>
+
       </div>
     </nav>
 
