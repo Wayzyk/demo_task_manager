@@ -1,20 +1,36 @@
 <% if user_signed_in? %>
 
-  <div class="col-md-6 col-md-offset">
-    <% @projects.each do |project| %>
-    <h2><%= link_to project.title, project %></h2>
-    <p><%= project.description %></p>
+  <div class="col-md-6 col-md-offset-3">
 
+    <div class="row item">
 
-    <div class="col-md-2">
-      <p><%= link_to project, method: :delete, data: { confirm: "Are you sure?" } do %></p>
-        <i class="fa fa-trash fa-lg"></i>
-        <% end %>
-      </div>
+      <% @projects.each do |project| %>
+
+        <div class="col-md-8">
+          <h2><%= link_to project.title, project %></h2>
+          <p><%= project.description %></p>
+        </div>
+
+        <div class="col-md-2">
+          <p><%= link_to edit_project_path(project) do %></p>
+            <i class="fa fa-lg fa-edit"></i>
+          <% end %>
+        </div>
+
+        <div class="col-md-2">
+          <p><%= link_to project, method: :delete, data: { confirm: "Are you sure?" } do %></p>
+            <i class="fa fa-lg fa-trash"></i>
+          <% end %>
+        </div>
+
+      <% end %>
+
+    </div>
 
   </div>
 
-  <% end %>
 <% else %>
+
     <%= render "layouts/static_pages" %>
+
 <% end %>
