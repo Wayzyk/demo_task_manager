@@ -14,6 +14,18 @@
     </div>
 
     <div class="col-md-2">
+      <p><%= link_to edit_project_task_path(@project, task.id) do %></p>
+        <i class="fa fa-lg fa-edit"></i>
+      <% end %>
+    </div>
+
+    <div class="col-md-2">
+      <p><%= link_to project_task_path(@project, task.id) do %></p>
+        <i class="fa fa-lg fa-tasks"></i>
+      <% end %>
+    </div>
+
+    <div class="col-md-2">
       <p><%= link_to project_task_path(@project, task.id), method: :delete, data: { confirm: "Are you sure?"} do %></p>
         <i class="fa fa-lg fa-trash"></i>
       <% end %>
@@ -38,6 +50,12 @@
     <div class="col-md-2">
       <p><%= link_to complete_project_task_path(@project, task.id), method: :patch do %></p>
         <i class="fa fa-lg fa-check"></i>
+      <% end %>
+    </div>
+
+    <div class="col-md-2">
+      <p><%= link_to edit_project_task_path(@project, task) do %></p>
+        <i class="fa fa-lg fa-edit"></i>
       <% end %>
     </div>
 

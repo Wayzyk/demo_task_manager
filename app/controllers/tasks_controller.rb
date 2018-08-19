@@ -1,9 +1,35 @@
 class TasksController < ApplicationController
   before_action :set_project
-  before_action :set_task, except: [:create]
+  before_action :set_task, except: [:new, :create]
+
+  def show
+    @task = @project.tasks.find(params[:id])
+  end
+
+  def new
+    @task = @project.tasks.build
+  end
+
+  def edit
+    @task = @project.tasks.find(params[:id])
+  end
+
   def create
-    @task = @project.tasks.create(task_params)
-    redirect_to @project
+    @task = @project.tasks.build(task_params)
+    if @task.save
+      redirect_to @project
+    else
+      render 'new'
+    end
+  end
+
+  def update
+    @task = @project.tasks.find(params[:id])
+    if @task.update(task_params)
+      redirect_to @project
+    else
+      render 'edit'
+    end
   end
 
   def destroy
