@@ -1,6 +1,6 @@
 <% if task.completed? %>
 
-  <div class="row item">
+  <div id="<%= task.sortable_id %>" class="row item" data-url="<%= sort_project_tasks_path %>">
 
     <div class="col-md-8">
       <p style="opacity: 0.5;"><strike><%= task.task_description %></strike></p>
@@ -20,12 +20,6 @@
     </div>
 
     <div class="col-md-2">
-      <p><%= link_to project_task_path(@project, task.id) do %></p>
-        <i class="fa fa-lg fa-tasks"></i>
-      <% end %>
-    </div>
-
-    <div class="col-md-2">
       <p><%= link_to project_task_path(@project, task.id), method: :delete, data: { confirm: "Are you sure?"} do %></p>
         <i class="fa fa-lg fa-trash"></i>
       <% end %>
@@ -35,7 +29,7 @@
 
 <% else %>
 
-  <div class="row item">
+  <div id="<%= task.sortable_id %>" class="row item">
 
     <div class="col-md-8">
       <p><%= task.task_description %></p>
