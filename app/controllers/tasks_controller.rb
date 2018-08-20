@@ -4,6 +4,7 @@ class TasksController < ApplicationController
 
   def show
     @task = @project.tasks.find(params[:id])
+    @project.tasks.last.move_higher
   end
 
   def new
