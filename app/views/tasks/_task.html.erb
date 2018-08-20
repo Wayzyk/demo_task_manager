@@ -1,8 +1,8 @@
 <% if task.completed? %>
 
-  <div id="<%= task.sortable_id %>" class="row item" data-url="<%= sort_project_tasks_path %>">
+  <div id="<%= task.sortable_id %>" class="row item list-group">
 
-    <div class="col-md-8">
+    <div class="col-md-8 list-group-item">
       <p style="opacity: 0.5;"><strike><%= task.task_description %></strike></p>
       <p style="opacity: 0.5;"><%= task.deadline %></p>
     </div>
@@ -29,10 +29,10 @@
 
 <% else %>
 
-  <div id="<%= task.sortable_id %>" class="row item">
+  <div id="<%= task.sortable_id %>" class="row item list-group" >
 
-    <div class="col-md-8">
-      <p><%= task.task_description %></p>
+    <div class="list-group-item col-md-8">
+      <h3><%= task.task_description %></h3>
 
       <% if task.expired? %>
         <p><%= "Deadline expired" %></p>
