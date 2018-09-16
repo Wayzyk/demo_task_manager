@@ -10,11 +10,11 @@
   </p>
 
   <div class="sortable">
-    <% @project.tasks.each_with_sortable_id do |task, sortable_id| %>
+    <% @tasks.each_with_sortable_id do |task, sortable_id| %>
      <%= render "tasks/task", task: task, sortable_id: sortable_id %>
     <% end %>
-    <%= render "tasks/form" %>
   </div>
+  <%= render "tasks/form" %>
 
 
   <%= link_to "Edit", edit_project_path(@project) %>
